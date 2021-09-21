@@ -1,0 +1,40 @@
+<div class="row">
+
+  <div class="col-12">
+
+    <mat-card>
+      <app-header></app-header>
+    </mat-card>
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-9 d-flex" style="margin-left: 35px">
+
+    <div *ngFor="let tags of tags" style="margin-right: 10px">
+      <!--      TAGS + TOGGLE SHOW MAP &#45;&#45;&#45;&#45; FAZER MAP DESAPARECER COM O TOGGLE-->
+      <button mat-stroked-button color="primary" class="text tags">{{tags.name}}</button>
+    </div>
+    </div>
+
+    <div class="col-2">
+      Show Map <mat-slide-toggle></mat-slide-toggle>
+    </div>
+<mat-divider style="width: 100%"></mat-divider>
+  </div>
+
+
+<!--  2 colunas para "300+ places to stay e MAPA-->
+
+<div class="row">
+
+  <div calss="col-8">
+    <!--      LOCAIS      -->
+  </div>
+
+  <div class="col">
+    <!--      MAPA-->
+  </div>
+
+</div>

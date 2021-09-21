@@ -1,0 +1,12 @@
+.text{
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+  font-weight: 400;
+  color: black;
+}
+
+.tags{
+  border-radius: 50px;
+  margin: 5px 1px 5px 1px;
+  border-width: 2px;
+  border-color: lightgray;
+}

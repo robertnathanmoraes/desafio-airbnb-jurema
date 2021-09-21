@@ -1,0 +1,14 @@
+.text{
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+  font-weight: 600;
+}
+
+.logo {
+  height: 30px;
+  width: 30px;
+}
+
+.image {
+  background-image: url('src/assets/avatar.png');
+  background-size: cover;
+}
