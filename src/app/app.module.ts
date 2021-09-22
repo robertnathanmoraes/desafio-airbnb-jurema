@@ -19,6 +19,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/header/header.component';
 import {MatIconModule} from "@angular/material/icon";
 import {CarouselModule} from "angular-bootstrap-md";
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,12 @@ import {CarouselModule} from "angular-bootstrap-md";
     MatSelectModule,
     MatDividerModule,
     MatIconModule,
-    CarouselModule
+    CarouselModule,
+    AgmCoreModule.forRoot({
+      // please get your own API key here:
+      // https://developers.google.com/maps/documentation/javascript/get-api-key?hl=en
+      apiKey: 'AIzaSyC44hOYImnUIvVPzypPgRcilRsy-Wx8kNo'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
