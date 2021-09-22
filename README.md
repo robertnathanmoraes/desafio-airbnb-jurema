@@ -4,5 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Dependencias
 
-npm i @angular/material
-npm i angular-bootstrap-md
+npm i @angular/material <br>
+npm i angular-bootstrap-md <br>
+npm install @agm/ <br>
+
