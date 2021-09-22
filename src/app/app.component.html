@@ -57,8 +57,14 @@
 
       <mat-divider style="width: 100%;"></mat-divider>
       <div class="row m-3">
-        <div class="col-6 ">
-          <img class="img-card" mat-card-imag src="{{cards.image}}">
+        <div class="col-6">
+          <mdb-carousel class="carousel slide carousel-fade" [animation]="'fade'">
+            <mdb-carousel-item *ngFor="let item of cards.image">
+              <div class="view w-100">
+                <img class="d-block w-100" src="{{item.image}}" alt="First slide"  style="border-radius: 5px;">
+              </div>
+            </mdb-carousel-item>
+          </mdb-carousel>
         </div>
 
         <div class="col-6">

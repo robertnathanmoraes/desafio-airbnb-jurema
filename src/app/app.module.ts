@@ -18,6 +18,7 @@ import { AppComponent } from './app.component';
 
 import { HeaderComponent } from './shared/header/header.component';
 import {MatIconModule} from "@angular/material/icon";
+import {CarouselModule} from "angular-bootstrap-md";
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import {MatIconModule} from "@angular/material/icon";
     // BrowserModule.withServerTransition({appId: 'serverApp'}),
     MatSelectModule,
     MatDividerModule,
-    MatIconModule
+    MatIconModule,
+    CarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]

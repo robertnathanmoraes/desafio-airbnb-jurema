@@ -14,7 +14,7 @@ export class AppComponent {
   card = [
     {
       plus: true,
-      image: 'https://a0.muscache.com/im/pictures/c9c9666d-b703-4814-9db6-de91c3b682a0.jpg?im_w=480',
+      image: [{image: 'https://a0.muscache.com/im/pictures/c9c9666d-b703-4814-9db6-de91c3b682a0.jpg?im_w=480'}, {image: 'https://a0.muscache.com/im/pictures/miso/Hosting-19140555/original/bbbde631-db06-4171-9283-d0f2b2a224cf.jpeg?im_w=480'}],
       type: 'Entire guesthouse',
       title: 'Charmant petit studio perisien au coeur du Marais, etc text',
       hotelTitle: 'Entire guesthouse',
@@ -29,7 +29,7 @@ export class AppComponent {
     },
     {
       plus: false,
-      image: 'https://a0.muscache.com/im/pictures/miso/Hosting-19140555/original/bbbde631-db06-4171-9283-d0f2b2a224cf.jpeg?im_w=480',
+      image: [{image: 'https://a0.muscache.com/im/pictures/c9c9666d-b703-4814-9db6-de91c3b682a0.jpg?im_w=480'}, {image: 'https://a0.muscache.com/im/pictures/miso/Hosting-19140555/original/bbbde631-db06-4171-9283-d0f2b2a224cf.jpeg?im_w=480'}],
       type: 'Entire guesthouse',
       title: 'Champs-Élysées Golden triangle flat with mezzanine',
       hotelTitle: 'Entire guesthouse',
