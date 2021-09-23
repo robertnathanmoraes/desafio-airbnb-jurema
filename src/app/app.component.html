@@ -27,17 +27,17 @@
   </ng-template>
 
 
-  <div class="col-2" style="align-self: center; display: flex; justify-content: flex-end;"
+  <div class="col-3 d-flex justify-content-end align-self-center"
        *ngIf="isScreenSmall | async">
-    <div>Show Map</div>
-    <mat-slide-toggle></mat-slide-toggle>
+    <div class="mr-2">Show Map</div>
+    <mat-slide-toggle [checked]="checked" (change)="changeToggleInfo($event.checked)"></mat-slide-toggle>
   </div>
 
   <mat-divider style="width: 100%"></mat-divider>
 
 </div>
 
-<div class="row {{(isScreenSmall | async) ? 'container-fluid' : ''}}">
+<div class="row {{(isScreenSmall | async) ? 'container-fluid ' : 'm-0 p-0'}}">
 
   <div class="col-lg-8 col-12">
     <div class="row container" style="height: 11%; align-items: center;">
@@ -129,7 +129,7 @@
     </div>
   </div>
 
-  <div class="col" *ngIf="isScreenSmall | async">
+  <div class="col" *ngIf="(isScreenSmall | async) && checked">
     <mat-card class="card-map">
       <h6>Search as i move the map</h6>
     </mat-card>

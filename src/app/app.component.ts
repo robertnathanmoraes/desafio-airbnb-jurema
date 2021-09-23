@@ -65,6 +65,7 @@ export class AppComponent implements OnInit{
     width: '55px',
     height: '55px'
   }
+  checked = true
 
   constructor(
     public matIconRegistry: MatIconRegistry,
@@ -86,5 +87,7 @@ export class AppComponent implements OnInit{
       .observe([Breakpoints.WebLandscape]).pipe(map(({matches}) => matches))
   }
 
-
+  changeToggleInfo(checked: boolean) {
+    this.checked = checked;
+  }
 }

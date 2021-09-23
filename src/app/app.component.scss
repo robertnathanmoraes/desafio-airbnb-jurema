@@ -87,3 +87,32 @@ agm-map {
   display: flex;
   align-items: center;
 }
+
+::ng-deep .mat-slide-toggle-bar{
+  width: 52px !important;
+  height: 35px !important;
+  border-radius: 25px !important;
+}
+
+::ng-deep .mat-slide-toggle-thumb{
+  width: 30px !important;
+  height: 30px !important;
+  margin-top: 5px !important;
+  margin-left: 3px !important;
+}
+
+::ng-deep .mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+  background-color: black;
+}
+
+::ng-deep .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+  background-color: white;
+}
+
+::ng-deep .mat-slide-toggle.mat-checked .mat-ripple-element {
+  background-color: #211ed8;
+}
+
+.width-100{
+  width: 100%;
+}
