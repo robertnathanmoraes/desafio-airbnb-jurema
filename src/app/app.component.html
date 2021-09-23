@@ -13,16 +13,19 @@
       <!--      TAGS + TOGGLE SHOW MAP &#45;&#45;&#45;&#45; FAZER MAP DESAPARECER COM O TOGGLE-->
       <button mat-stroked-button color="primary" class="text tags">{{tags.name}}</button>
     </div>
+    <button mat-stroked-button color="primary" class="text tags">More filters</button>
   </div>
 
 <!--SE FOR MOBILE-->
   <ng-template #small>
     <div class="col-12 col-lg-9 d-flex flex-wrap">
-      <div *ngFor="let tags of tags | slice:0 : 3">
+      <div *ngFor="let tags of tags | slice:0 : 2">
         <button mat-stroked-button color="primary" class="text tags">{{tags.name}}</button>
       </div>
+      <button mat-stroked-button color="primary" class="text tags">Filters</button>
     </div>
   </ng-template>
+
 
   <div class="col-2" style="align-self: center; display: flex; justify-content: flex-end;"
        *ngIf="isScreenSmall | async">
@@ -34,7 +37,7 @@
 
 </div>
 
-<div class="row container-fluid">
+<div class="row {{(isScreenSmall | async) ? 'container-fluid' : ''}}">
 
   <div class="col-lg-8 col-12">
     <div class="row container" style="height: 11%; align-items: center;">
@@ -59,10 +62,10 @@
 
 
     <div class="row">
-      <div class="row container-fluid" *ngFor="let cards of card">
+      <div class="row mb-5 container-fluid" *ngFor="let cards of card">
         <mat-divider *ngIf="(isScreenSmall | async)" style="width: 100%; margin-left: 30px"></mat-divider>
 
-        <div class="row m-3 p-0 container-fluid">
+        <div class="row container-fluid {{(isScreenSmall | async) ? 'm-3 p-0' : 'ml-1'}} ">
           <div class="col-sm-12 col-lg-4">
             <mdb-carousel>
               <mdb-carousel-item *ngFor="let item of cards.image">

@@ -69,11 +69,12 @@ agm-map {
 }
 
 .button-align{
-  float: unset;
   margin-left: 40%;
   display: flex !important;
-  position: absolute;
+  position: fixed;
   z-index: 2;
+  top: 93%;
+  float: initial;
 }
 
 .card-map{
