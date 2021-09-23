@@ -11,12 +11,6 @@
   border-color: lightgray;
 }
 
-.img-card {
-  border-radius: 5px;
-  width: 400px;
-  height: 250px;
-}
-
 .tag {
   width: 38px;
   height: 21px;
@@ -54,25 +48,41 @@ ul li {
 }
 
 agm-map {
-  height: 100vh;
+  height: calc(100vh - 155px);
+  width: 105%;
 }
 
-.marker{
-  background-color: rgb(255, 255, 255);
-  border-radius: 28px;
-  box-shadow: rgb(0 0 0 / 4%) 0px 0px 0px 1px, rgb(0 0 0 / 18%) 0px 2px 4px;
-  color: rgb(34, 34, 34);
-  height: 28px;
-  padding: 0px 8px;
-  position: relative;
-  transform: scale(1);
-  transform-origin: 50% 50%;
-  transition: transform 250ms cubic-bezier(0, 0, 0.1, 1) 0s;
-}
 
 .price-align{
   display: flex;
   justify-content: end;
-  height: 66%;
+  height: 51%;
   align-items: flex-end;
+}
+
+.font-sm{
+  font-size: 9px;
+}
+
+.font-lg{
+  font-size: 15px;
+}
+
+.button-align{
+  float: unset;
+  margin-left: 40%;
+  display: flex !important;
+  position: absolute;
+  z-index: 2;
+}
+
+.card-map{
+  width: 35%;
+  z-index: 1;
+  position: absolute;
+  margin-left: 35%;
+  height: 40px;
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
 }

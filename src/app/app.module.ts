@@ -20,11 +20,13 @@ import { HeaderComponent } from './shared/header/header.component';
 import {MatIconModule} from "@angular/material/icon";
 import {CarouselModule} from "angular-bootstrap-md";
 import { AgmCoreModule } from '@agm/core';
+import { MapButtonComponent } from './shared/components/map-button/map-button.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    MapButtonComponent
   ],
   imports: [
     CommonModule,

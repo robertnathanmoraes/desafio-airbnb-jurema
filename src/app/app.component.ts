@@ -47,12 +47,24 @@ export class AppComponent implements OnInit{
     },
   ];
   markers = [
-    { address: 'Av ipiranga 7464 Porto Alegre', lat: 51.02002, lng: 51.02342 },
-    { address: 'Rua monte carlo 686 viamão', lat: 54.02002, lng: 54.02342 },
-    { address: 'Av ipiranga 2321 Porto Alegre', lat: 56.02002, lng: 56.02342 }
+    { address: 'Av ipiranga 7464 Porto Alegre', lat: 51.02002, lng: 51.02342, price: 'R$ 320' },
+    { address: 'Rua monte carlo 686 viamão', lat: 54.02002, lng: 54.02342, price: 'R$ 1200' },
+    { address: 'Av ipiranga 2321 Porto Alegre', lat: 56.02002, lng: 56.02342, price: 'R$233'}
   ];
   lat = 51.02002
   lng = 51.02342
+  isScreenSmall: Observable<boolean> | undefined
+  mapStyle: any;
+
+  labelOptions = {
+    color: 'black',
+    fontFamily: '',
+    fontSize: '14px',
+    fontWeight: 'bold',
+    text: "some text",
+    width: '55px',
+    height: '55px'
+  }
 
   constructor(
     public matIconRegistry: MatIconRegistry,
@@ -63,10 +75,15 @@ export class AppComponent implements OnInit{
       'star',
       domSanitizer.bypassSecurityTrustResourceUrl('assets/star.svg')
     );
+    matIconRegistry.addSvgIcon(
+      'map',
+      domSanitizer.bypassSecurityTrustResourceUrl('assets/map.svg')
+    );
   }
 
   ngOnInit(): void {
-
+    this.isScreenSmall = this.breakpointObserver
+      .observe([Breakpoints.WebLandscape]).pipe(map(({matches}) => matches))
   }
 
 

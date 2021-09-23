@@ -1,21 +1,31 @@
-<div class="row">
 
-  <div class="col-12">
-      <app-header></app-header>
+<div class="row" style="margin-right: 0">
+  <div class="col-12" style="padding-right: 0px; margin-right: 0px;">
+    <app-header></app-header>
   </div>
 </div>
 
-<div class="row">
-  <div class="col-9 d-flex" style="margin-left: 30px">
+<div class="row m-0 p-0 ">
 
-    <div *ngFor="let tags of tags" style="margin-right: 10px">
+  <!--  SE FOR WEB-->
+  <div class="col-12 col-lg-9 d-flex flex-wrap" *ngIf="isScreenSmall | async; else small">
+    <div *ngFor="let tags of tags">
       <!--      TAGS + TOGGLE SHOW MAP &#45;&#45;&#45;&#45; FAZER MAP DESAPARECER COM O TOGGLE-->
       <button mat-stroked-button color="primary" class="text tags">{{tags.name}}</button>
     </div>
-
   </div>
 
-  <div class="col-2" style="align-self: center; display: flex; justify-content: flex-end;">
+<!--SE FOR MOBILE-->
+  <ng-template #small>
+    <div class="col-12 col-lg-9 d-flex flex-wrap">
+      <div *ngFor="let tags of tags | slice:0 : 3">
+        <button mat-stroked-button color="primary" class="text tags">{{tags.name}}</button>
+      </div>
+    </div>
+  </ng-template>
+
+  <div class="col-2" style="align-self: center; display: flex; justify-content: flex-end;"
+       *ngIf="isScreenSmall | async">
     <div>Show Map</div>
     <mat-slide-toggle></mat-slide-toggle>
   </div>
@@ -24,20 +34,19 @@
 
 </div>
 
-
-<!--  2 colunas para "300+ places to stay e MAPA-->
-
 <div class="row container-fluid">
 
-  <div class="col-8">
+  <div class="col-lg-8 col-12">
     <div class="row container" style="height: 11%; align-items: center;">
 
-      <div class="col-1 d-flex justfy-content-center">
+      <div class="col-lg-1 col-2 d-flex justfy-content-center">
         <img src="assets/trofeu.png" style="height: 55px;">
       </div>
 
       <div class="col align-self-center d-flex">
-        <h6> Over 1,000,000 guest reviews for places to stay in Paris, with an avarage of 4.7 out of 5 stars.</h6>
+        <div class=" {{(isScreenSmall | async) ? '' : 'font-sm'}}"> Over 1,000,000 guest reviews for places to stay in
+          Paris, with an avarage of 4.7 out of 5 stars.
+        </div>
       </div>
 
     </div>
@@ -50,60 +59,62 @@
 
 
     <div class="row">
-      <div class="row" *ngFor="let cards of card">
+      <div class="row container-fluid" *ngFor="let cards of card">
+        <mat-divider *ngIf="(isScreenSmall | async)" style="width: 100%; margin-left: 30px"></mat-divider>
 
-        <mat-divider style="width: 100%;"></mat-divider>
-        <div class="row m-4">
-          <div class="col-6">
-            <mdb-carousel class="carousel slide carousel-fade" [animation]="'fade'">
+        <div class="row m-3 p-0 container-fluid">
+          <div class="col-sm-12 col-lg-4">
+            <mdb-carousel>
               <mdb-carousel-item *ngFor="let item of cards.image">
                 <div class="view w-100">
-                  <img class="d-block w-100" src="{{item.image}}" alt="First slide" style="border-radius: 5px;">
+                  <img class="d-block w-100" src="{{item.image}}" alt="First slide"
+                       style="border-radius: 5px;">
                 </div>
               </mdb-carousel-item>
             </mdb-carousel>
           </div>
 
-          <div class="col-6">
-            <div class="row">
+          <div class="col-lg-8 col-sm-12">
+            <div class="row {{(isScreenSmall | async) ? 'p-0 m-0' : 'pl-3 pt-3'}} container">
 
-              <div class="col-1" style="margin-right: 10px;" *ngIf="cards.plus">
+              <div class="pr-1" *ngIf="cards.plus">
                 <div class="tag">PLUS</div>
               </div>
 
-              <div class="col-7">
+              <div class="{{cards.plus ? 'col-7' : 'col-8'}} pl-0" style="color: dimgray">
                 {{cards.type}}
               </div>
 
-              <div class="col-1">
+              <div class="{{(isScreenSmall | async) ? 'col' : 'col-3 p-0'}}" style="justify-content: flex-end; display: flex; font-size: smaller">
                 <mat-icon svgIcon="star"></mat-icon>
-              </div>
-
-              <div class="col-1">
-                <div>{{cards.rate}}({{cards.quantityRate}})</div>
+                <div style="font-weight: 600">{{cards.rate}}</div>
+                <div style="color: dimgray">({{cards.quantityRate}})</div>
               </div>
 
             </div>
 
-            <div class="row m-1">
+            <div class="row container ">
               <h6 class="title-style">{{cards.title}}</h6>
             </div>
 
-            <div class="row m-1">
+            <div class="row m-1" *ngIf="isScreenSmall | async">
               <div style="color: dimgray">{{cards.guest}} guests
                 • {{cards.studio ? 'Studio •' : ''}} {{cards.beds}} {{cards.beds == '1' ? 'bed' : 'beds' }}
                 • {{cards.bath}} bath
               </div>
             </div>
 
-            <div class="row m-1">
+            <div class="row m-1" *ngIf="isScreenSmall | async">
               <div *ngFor="let tags of cards.tags; let isLast=last">
-                <div style="color: dimgray;"> {{ tags.name }} {{isLast ? '' : ' • '}}</div>
+                <div style="color: dimgray;"> {{ tags.name }} {{isLast ? '' : ' •&nbsp; '}}</div>
               </div>
             </div>
 
-            <div class="row m-1 price-align">
-              <div style="color: dimgray;"> {{cards.price}}/ night</div>
+            <div class="row {{(isScreenSmall | async) ? 'price-align m-1' : ''}}">
+              <div class="col-11 {{(isScreenSmall | async) ? 'justify-content-end p-0' : ''}} d-flex">
+                <div style="font-weight: bold; font-size: large;">{{cards.price}}</div>
+                <div>&nbsp;/ night</div>
+              </div>
             </div>
 
           </div>
@@ -115,27 +126,32 @@
     </div>
   </div>
 
-  <div class="col">
-    <!--    MAPA-->
+  <div class="col" *ngIf="isScreenSmall | async">
+    <mat-card class="card-map">
+      <h6>Search as i move the map</h6>
+    </mat-card>
     <agm-map
       [latitude]="lat"
       [longitude]="lng"
       [disableDefaultUI]="false"
       [zoomControl]="false"
-    >
-
+     >
       <agm-marker class="marker"
                   *ngFor="let m of markers; let i = index"
                   [latitude]="m.lat"
                   [longitude]="m.lng"
-                  labelClass="marker"
-      >
-
+                  [title]="m.address"
+                  [label]="labelOptions"
+                  iconUrl="labelOptions"
+                  >
       </agm-marker>
 
     </agm-map>
-
   </div>
+
 </div>
+
+<app-map-button *ngIf="!(isScreenSmall | async)" class="button-align"></app-map-button>
+
 
 

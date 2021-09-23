@@ -1,12 +1,12 @@
-<div class="row align-items-center text" style="margin: 20px">
+<div class="row align-items-center text" style="margin: 20px 0px 20px 0px">
 
-  <div class="{{ (isScreenSmall | async ) ? 'col-sm-8' : 'col-12'}} d-flex">
+  <div class="{{ (isScreenSmall | async ) ? 'col-sm-8' : 'col-11'}} d-flex">
 
-    <div class="col-1">
+    <div class="col-sm-3 col-lg-1">
       <img src="assets/airbnblogo.png" style="height: 65px;">
     </div>
 
-    <div class="{{ (isScreenSmall | async ) ? 'col-sm-7' : 'col-10'}}">
+    <div class="{{ (isScreenSmall | async ) ? 'col-lg-7' : 'col-9'}}">
       <mat-card class="input-card d-flex align-items-center" style="height: 57px; box-shadow: 1px 2px 5px 0px grey;">
         <div class="row">
 
@@ -39,4 +39,4 @@
 
 </div>
 
-<mat-divider style="width: 100%"></mat-divider>
+<mat-divider style="width: 100%" *ngIf="isScreenSmall | async "></mat-divider>
