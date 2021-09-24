@@ -3,16 +3,16 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 10
+      nodejs: 14.17.3
     commands:
       - echo installing dependencies...
       - npm install
-      - npm install -g @angular/cli@9.1.12
+      - npm install -g @angular/cli@12.2.2
       - npm audit fix
   build:
     commands:
       - echo Build started...
-      - ng build
+      - ng build --configuration=$STAGE --aot --source-map=false --build-optimizer=false
 
   post_build:
     commands:
@@ -20,7 +20,6 @@ phases:
 
 artifacts:
   files:
-      - '**/*'
-  base-directory: ''
+    - '**/*'
+  base-directory: 'dist/'
   discard-paths: no
-
