@@ -16,7 +16,4 @@ phases:
     commands:
       - echo Build completed
 
-artifacts:
-  files:
-    - '**/*'
 
