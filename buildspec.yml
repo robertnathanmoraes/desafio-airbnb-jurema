@@ -1,0 +1,25 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 10
+    commands:
+      - echo installing dependencies...
+      - npm install
+      - npm install -g @angular/cli@9.1.12
+      - npm audit fix
+  build:
+    commands:
+      - echo Build started...
+      - ng build --configuration=$STAGE --aot --source-map=false --build-optimizer=false
+
+  post_build:
+    commands:
+      - echo Build completed
+
+artifacts:
+  files:
+      - '**/*'
+  base-directory: 'dist/evocities'
+  discard-paths: no
