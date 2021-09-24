@@ -2,18 +2,20 @@ version: 0.2
 
 phases:
   install:
+    runtime-versions:
+      nodejs: 10
     commands:
-      - echo installing dependencies...
+      - echo Installing Mocha...
+      - npm install -g mocha
+  pre_build:
+    commands:
+      - echo Installing source NPM dependencies...
       - npm install
-      - npm install -g @angular/cli@12.2.2
-      - npm audit fix
   build:
     commands:
-      - echo Build started...
-      - ng build
-
+      - echo Build started on `date`
+      - echo Compiling the Node.js code
   post_build:
     commands:
-      - echo Build completed
-
+      - echo Build completed on `date`
 
