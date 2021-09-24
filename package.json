@@ -2,7 +2,7 @@
   "name": "airbnb-jurema",
   "version": "1.0.0",
   "engines": {
-    "node": "8.x",
+    "node": "8.x"
   },
   "scripts": {
     "ng": "ng",
